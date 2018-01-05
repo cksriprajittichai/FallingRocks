@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 public class LightUpPanel extends JPanel implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
+	private int score;
 	private int fontSize; // Can delete, if not using
 	private Color pauseColor;
 	private Color leftColor;
@@ -24,6 +25,8 @@ public class LightUpPanel extends JPanel implements ActionListener {
 		setBackground(Color.BLACK);
 		setMinimumSize(new Dimension(800, 200)); // Minimum size vital when using BoxLayout
 		setMaximumSize(new Dimension(800, 200));
+
+		score = 0;
 
 		fontSize = 50;
 		pauseColor = Color.GRAY;
@@ -47,30 +50,34 @@ public class LightUpPanel extends JPanel implements ActionListener {
 			pauseColor = Color.GREEN;
 			keysPressedNow.remove(KeyEvent.VK_LEFT); // Ignore left and right keys by
 			keysPressedNow.remove(KeyEvent.VK_RIGHT); // removing from keysPressedNow.
-		} // Else PauseColor is already gray
+			score--; // Cancel out future increment of score
+		} else {
+			pauseColor = Color.GRAY;
+		}
 
 		g.setColor(pauseColor);
 		g.drawString("[P]", 775, 20);
 
+		g.setFont(new Font("Serif", Font.BOLD, 20));
+		g.setColor(Color.GRAY);
+		g.drawString("Score: " + ++score / 100, 25, 25); // Increment score
+
 		g.setFont(new Font("Serif", Font.BOLD, fontSize));
-		if (keysPressedNow.contains(KeyEvent.VK_LEFT) && keysPressedNow.contains(KeyEvent.VK_RIGHT)) {
+		if (keysPressedNow.contains(KeyEvent.VK_LEFT)) {
 			leftColor = Color.CYAN;
-			rightColor = Color.CYAN;
-		} else if (keysPressedNow.contains(KeyEvent.VK_LEFT)) {
-			leftColor = Color.CYAN;
-		} else if (keysPressedNow.contains(KeyEvent.VK_RIGHT)) {
-			rightColor = Color.CYAN;
+		} else {
+			leftColor = Color.GRAY;
 		}
-		// Else leftColor and rightColor are already gray
+		if (keysPressedNow.contains(KeyEvent.VK_RIGHT)) {
+			rightColor = Color.CYAN;
+		} else {
+			rightColor = Color.GRAY;
+		}
 
 		g.setColor(leftColor);
 		g.drawString("LEFT", 135, 100);
 		g.setColor(rightColor);
 		g.drawString("RIGHT", 500, 100);
-
-		pauseColor = Color.GRAY; // Reset
-		leftColor = Color.GRAY;
-		rightColor = Color.GRAY;
 	}
 
 }

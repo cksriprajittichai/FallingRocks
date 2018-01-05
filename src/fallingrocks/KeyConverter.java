@@ -50,6 +50,9 @@ public class KeyConverter implements KeyListener {
 		int key = e.getKeyCode();
 
 		switch (key) {
+		case KeyEvent.VK_R:
+			keysPressedNow.remove(KeyEvent.VK_R);
+			break;
 		case KeyEvent.VK_LEFT:
 			keysPressedNow.remove(KeyEvent.VK_LEFT);
 			break;
