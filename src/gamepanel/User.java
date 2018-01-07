@@ -1,44 +1,48 @@
-package fallingrocks;
+package gamepanel;
 
 import java.awt.Color;
 
-public class UserObject {
+public class User {
 
-	private int xPos;
-	private int yPos;
-	private int xVel;
-	private int yVel;
+	private float xPos;
+	private float yPos;
 	private int width;
 	private int height;
+	private float xVel;
 	private int xBound; // Bound of GamePanel
-	private int yBound;
 	private Color color;
 
-	public UserObject(int xPos_arg, int yPos_arg, int xVel_arg, int yVel_arg, int width_arg, int height_arg) {
+	public User(int xPos_arg, int yPos_arg, int xVel_arg, int width_arg, int height_arg) {
 		xPos = xPos_arg;
 		yPos = yPos_arg;
 		xVel = xVel_arg;
-		yVel = yVel_arg;
 		width = width_arg;
 		height = height_arg;
 
 		xBound = 799;
-		yBound = 599;
 
-		color = Color.BLUE; // Change later?
+		color = Color.BLUE;
 	}
 
 	// Changes the position of the object, considering GamePanel bounds.
-	public void move(char direction) {
+	public void move(char direction, boolean slowDownActivated) {
 		switch (direction) {
 		case 'L':
-			xPos -= xVel;
+			if (slowDownActivated == true) {
+				xPos -= xVel * 0.5;
+			} else {
+				xPos -= xVel;
+			}
 			if (xPos < 0) {
 				xPos = 0;
 			}
 			break;
 		case 'R':
-			xPos += xVel;
+			if (slowDownActivated == true) {
+				xPos += xVel * 0.5;
+			} else {
+				xPos += xVel;
+			}
 			if (xPos + width > xBound) {
 				xPos = (int) (xBound - width);
 			}
@@ -46,36 +50,20 @@ public class UserObject {
 		}
 	}
 
-	public int getXPos() {
+	public float getxPos() {
 		return xPos;
 	}
 
-	public void setXPos(int xPos) {
+	public void setxPos(float xPos) {
 		this.xPos = xPos;
 	}
 
-	public int getYPos() {
+	public float getyPos() {
 		return yPos;
 	}
 
-	public void setYPos(int yPos) {
+	public void setyPos(float yPos) {
 		this.yPos = yPos;
-	}
-
-	public int getXVel() {
-		return xVel;
-	}
-
-	public void setXVel(int xVel) {
-		this.xVel = xVel;
-	}
-
-	public int getYVel() {
-		return yVel;
-	}
-
-	public void setYVel(int yVel) {
-		this.yVel = yVel;
 	}
 
 	public int getWidth() {
@@ -94,20 +82,20 @@ public class UserObject {
 		this.height = height;
 	}
 
-	public int getXBound() {
+	public float getxVel() {
+		return xVel;
+	}
+
+	public void setxVel(float xVel) {
+		this.xVel = xVel;
+	}
+
+	public int getxBound() {
 		return xBound;
 	}
 
-	public void setXBound(int xBound) {
+	public void setxBound(int xBound) {
 		this.xBound = xBound;
-	}
-
-	public int getYBound() {
-		return yBound;
-	}
-
-	public void setYBound(int yBound) {
-		this.yBound = yBound;
 	}
 
 	public Color getColor() {

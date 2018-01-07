@@ -1,4 +1,4 @@
-package fallingrocks;
+package non_gamepanel;
 
 import java.awt.Button;
 import java.awt.Color;
@@ -29,12 +29,12 @@ public class GameOverPanel extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String command = e.getActionCommand(); // GetActionCommand for a button click returns the name of the button
 											// Note: GetActionCommand() for a timer activated event is null
-		
 		if (command.compareTo("Play Again") == 0) {
 			playAgainPressed = true;
 		}
 	}
 
+	// Constantly called by a GameManager to know if the user wants to start a new game.
 	public boolean isPlayAgainPressed() {
 		return playAgainPressed;
 	}

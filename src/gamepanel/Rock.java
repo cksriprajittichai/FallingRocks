@@ -1,20 +1,20 @@
-package fallingrocks;
+package gamepanel;
 
 import java.awt.Color;
 
-public class RockObject {
+public class Rock {
 
-	private int xPos;
-	private int yPos;
+	private float xPos;
+	private float yPos;
 	private int width;
 	private int height;
-	private int xBound; // Bound of GamePanel
-	private int yBound;
 	private float currentVel;
 	private final float gravitationalAcc;
+	private int xBound; // Bound of GamePanel
+	private int yBound;
 	private Color color;
 
-	public RockObject(int xPos_arg, int yPos_arg, int width_arg, int height_arg, int currentVel_arg) {
+	public Rock(int xPos_arg, int yPos_arg, int width_arg, int height_arg, int currentVel_arg) {
 		xPos = xPos_arg;
 		yPos = yPos_arg;
 		width = width_arg;
@@ -23,17 +23,22 @@ public class RockObject {
 		xBound = 799;
 		yBound = 599;
 		currentVel = currentVel_arg;
-		gravitationalAcc = 0.05f;
+		gravitationalAcc = 0.005f;
 
 		color = Color.RED;
 	}
 
 	// Returns true if the whole rock is still above the ground.
-	public boolean move(char direction) {
+	public boolean move(char direction, boolean slowDownActivated) {
 		switch (direction) {
 		case 'D':
-			yPos += currentVel; // Positive y position is farther down the panel
-			currentVel += gravitationalAcc;
+			if (slowDownActivated == true) {
+				yPos += (currentVel * 0.5f); // Slow down
+			} else {
+				yPos += currentVel; // Positive y position is farther down the panel
+				currentVel += gravitationalAcc;
+			}
+			
 			if (yPos > yBound) { // Delete the rock when the whole thing exits screen
 				return false;
 			}
@@ -43,19 +48,19 @@ public class RockObject {
 		return true;
 	}
 
-	public int getXPos() {
+	public float getxPos() {
 		return xPos;
 	}
 
-	public void setXPos(int xPos) {
+	public void setxPos(float xPos) {
 		this.xPos = xPos;
 	}
 
-	public int getYPos() {
+	public float getyPos() {
 		return yPos;
 	}
 
-	public void setYPos(int yPos) {
+	public void setyPos(float yPos) {
 		this.yPos = yPos;
 	}
 
@@ -75,28 +80,28 @@ public class RockObject {
 		this.height = height;
 	}
 
-	public int getXBound() {
-		return xBound;
-	}
-
-	public void setXBound(int xBound) {
-		this.xBound = xBound;
-	}
-
-	public int getYBound() {
-		return yBound;
-	}
-
-	public void setYBound(int yBound) {
-		this.yBound = yBound;
-	}
-
 	public float getCurrentVel() {
 		return currentVel;
 	}
 
-	public void setCurrentVel(int currentVel) {
+	public void setCurrentVel(float currentVel) {
 		this.currentVel = currentVel;
+	}
+	
+	public int getxBound() {
+		return xBound;
+	}
+
+	public void setxBound(int xBound) {
+		this.xBound = xBound;
+	}
+
+	public int getyBound() {
+		return yBound;
+	}
+
+	public void setyBound(int yBound) {
+		this.yBound = yBound;
 	}
 
 	public Color getColor() {

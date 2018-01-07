@@ -1,4 +1,4 @@
-package fallingrocks;
+package non_gamepanel;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -25,6 +25,9 @@ public class KeyConverter implements KeyListener {
 		int key = e.getKeyCode();
 
 		switch (key) {
+		case KeyEvent.VK_SPACE:
+			keysPressedNow.add(KeyEvent.VK_SPACE);
+			break;
 		case KeyEvent.VK_R:
 			keysPressedNow.add(KeyEvent.VK_R);
 			break;
@@ -49,7 +52,12 @@ public class KeyConverter implements KeyListener {
 	public void keyReleased(KeyEvent e) {
 		int key = e.getKeyCode();
 
+		// These keys are keys that continue to react while being held down, unlike keys
+		// that have one reaction each time they are pressed (e.g. Pause key [P]).
 		switch (key) {
+		case KeyEvent.VK_SPACE:
+			keysPressedNow.remove(KeyEvent.VK_SPACE);
+			break;
 		case KeyEvent.VK_R:
 			keysPressedNow.remove(KeyEvent.VK_R);
 			break;

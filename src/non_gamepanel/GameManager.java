@@ -1,4 +1,4 @@
-package fallingrocks;
+package non_gamepanel;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -8,6 +8,8 @@ import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
+
+import gamepanel.GamePanel;
 
 public class GameManager extends JFrame implements ActionListener {
 
@@ -19,7 +21,7 @@ public class GameManager extends JFrame implements ActionListener {
 	private GameOverPanel gameOverPanel;
 	private Timer timer;
 
-	private GameManager() {
+	public GameManager() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setMinimumSize(new Dimension(800, 800));
 		setMaximumSize(new Dimension(800, 800));
@@ -39,9 +41,9 @@ public class GameManager extends JFrame implements ActionListener {
 		timer = null;
 	}
 
-	// Initializes gamePanel and lightUpPanel, and adds them to a top-level
-	// container, and starts game.
-	private void startNewGame() {
+	// Initializes gamePanel and lightUpPanel, and adds them to top-level
+	// container (topPanel), and starts game.
+	public void startNewGame() {
 		gameRunning = true;
 
 		KeyConverter listener = new KeyConverter();
@@ -52,7 +54,7 @@ public class GameManager extends JFrame implements ActionListener {
 		topPanel.add(gamePanel);
 		topPanel.add(lightUpPanel);
 		topPanel.revalidate();
-		topPanel.addKeyListener(listener); // Must have
+		topPanel.addKeyListener(listener);
 
 		getContentPane().add(topPanel);
 		setVisible(true);
@@ -68,12 +70,11 @@ public class GameManager extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
 		if (gameRunning == true && gamePanel.getGameOverStatus() == true) { // If the game is running but
 																			// should be stopped
 			gameRunning = false;
 
-			timer.removeActionListener(gamePanel);
+			timer.removeActionListener(gamePanel); // Delete gamePanel and lightUpPanel objects
 			timer.removeActionListener(lightUpPanel);
 			gamePanel = null;
 			lightUpPanel = null;
@@ -91,11 +92,6 @@ public class GameManager extends JFrame implements ActionListener {
 			}
 		}
 
-	}
-
-	public static void main(String args[]) {
-		GameManager gm = new GameManager();
-		gm.startNewGame();
 	}
 
 }
