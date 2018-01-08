@@ -2,6 +2,8 @@ package gamepanel;
 
 import java.awt.Color;
 
+import non_gamepanel.GameManager;
+
 public class User {
 
 	private float xPos;
@@ -9,17 +11,14 @@ public class User {
 	private int width;
 	private int height;
 	private float xVel;
-	private int xBound; // Bound of GamePanel
 	private Color color;
 
-	public User(int xPos_arg, int yPos_arg, int xVel_arg, int width_arg, int height_arg) {
+	public User(int xPos_arg, int yPos_arg, int width_arg, int height_arg, int xVel_arg) {
 		xPos = xPos_arg;
 		yPos = yPos_arg;
 		xVel = xVel_arg;
 		width = width_arg;
 		height = height_arg;
-
-		xBound = 799;
 
 		color = Color.BLUE;
 	}
@@ -43,8 +42,8 @@ public class User {
 			} else {
 				xPos += xVel;
 			}
-			if (xPos + width > xBound) {
-				xPos = (int) (xBound - width);
+			if (xPos + width > GameManager.rightXBound) {
+				xPos = (int) (GameManager.rightXBound - width);
 			}
 			break;
 		}
@@ -88,14 +87,6 @@ public class User {
 
 	public void setxVel(float xVel) {
 		this.xVel = xVel;
-	}
-
-	public int getxBound() {
-		return xBound;
-	}
-
-	public void setxBound(int xBound) {
-		this.xBound = xBound;
 	}
 
 	public Color getColor() {

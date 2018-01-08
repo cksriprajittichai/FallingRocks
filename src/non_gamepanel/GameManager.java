@@ -1,6 +1,7 @@
 package non_gamepanel;
 
 import java.awt.Dimension;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -20,25 +21,42 @@ public class GameManager extends JFrame implements ActionListener {
 	private LightUpPanel lightUpPanel;
 	private GameOverPanel gameOverPanel;
 	private Timer timer;
+	
+	public static int leftXBound;
+	public static int rightXBound;
+	public static int topYBound;
+	public static int bottomYBound;
 
 	public GameManager() {
+		Insets insets = getInsets();
+		
+		leftXBound = insets.left;
+		rightXBound = insets.left + 800;
+		topYBound = insets.top;
+		bottomYBound = insets.top + 600;
+		System.out.printf("leftX, rightX, topY, bottomY: %d, %d, %d, %d\n", leftXBound, rightXBound, topYBound, bottomYBound);
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setMinimumSize(new Dimension(800, 800));
-		setMaximumSize(new Dimension(800, 800));
+		
+		getContentPane().setPreferredSize(new Dimension(800, 800));
+		pack(); // Vital
+		
 		setResizable(false);
 		setLocationRelativeTo(null);
 
 		gameRunning = false;
 
 		topPanel = new JPanel();
-		topPanel.setMinimumSize(new Dimension(800, 800));
-		topPanel.setMaximumSize(new Dimension(800, 800));
+		topPanel.setMinimumSize(new Dimension(getInsets().left + getInsets().right + 800, getInsets().bottom + getInsets().top + 800));
+		topPanel.setMaximumSize(new Dimension(getInsets().left + getInsets().right + 800, getInsets().bottom + getInsets().top + 800));
 
 		gamePanel = null;
 		lightUpPanel = null;
 		gameOverPanel = null;
 
 		timer = null;
+		
+		this.setTitle("window is "+ this.getWidth() + " by "+ this.getHeight());
 	}
 
 	// Initializes gamePanel and lightUpPanel, and adds them to top-level

@@ -23,16 +23,16 @@ public class GamePanel extends JPanel implements ActionListener {
 	private ArrayList<Rock> rockList;
 	private boolean slowDownActivated;
 	private HashSet<Integer> keysPressedNow;
-
+	
 	public GamePanel(KeyConverter listener) {
 		setBackground(Color.YELLOW);
-		setMinimumSize(new Dimension(800, 600)); // Minimum size vital when using BoxLayout
-		setMaximumSize(new Dimension(800, 600));
-
+		
+		setPreferredSize(new Dimension(800, 600));
+		
 		gameOver = false;
 
 		Random random = new Random();
-		user = new User(random.nextInt(799 - 30), 549, 3, 30, 30);
+		user = new User(random.nextInt(799 - 15), 569, 30, 30, 2);
 		rockList = new ArrayList<Rock>();
 		
 		slowDownActivated = false;
@@ -47,7 +47,7 @@ public class GamePanel extends JPanel implements ActionListener {
 		}
 		
 		if (keysPressedNow.contains(KeyEvent.VK_R)) { // Add rock
-			rockList.add(new Rock(new Random().nextInt(799 - 25), 0, 25, 25, new Random().nextInt(2)));
+			rockList.add(new Rock(new Random().nextInt(799 - 100), 0, 25, 25, new Random().nextInt(2)));
 		}
 
 		if (keysPressedNow.contains(KeyEvent.VK_SPACE)) { // Slow down user and rocks
@@ -69,6 +69,12 @@ public class GamePanel extends JPanel implements ActionListener {
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);
+		
+		g.setColor(Color.RED);
+		g.drawLine(0, 599, 799, 599); // SHOW BASELINE OF GAMEPANEL
+		
+		g.setColor(user.getColor());
+		g.fillRect((int) user.getxPos(), (int) user.getyPos(), user.getWidth(), user.getHeight());
 
 		for (int index = 0; index < rockList.size(); index++) {
 			if (checkGameOver(rockList.get(index)) == true) { // Check for user-rock collision
@@ -84,9 +90,6 @@ public class GamePanel extends JPanel implements ActionListener {
 			g.fillRect((int) rockList.get(index).getxPos(), (int) rockList.get(index).getyPos(),
 					rockList.get(index).getWidth(), rockList.get(index).getHeight());
 		}
-
-		g.setColor(user.getColor());
-		g.fillRect((int) user.getxPos(), (int) user.getyPos(), user.getWidth(), user.getHeight());
 	}
 
 	// Return true if a rock is in contact with the user.

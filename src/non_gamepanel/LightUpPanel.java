@@ -23,8 +23,8 @@ public class LightUpPanel extends JPanel implements ActionListener {
 
 	public LightUpPanel(KeyConverter listener) {
 		setBackground(Color.BLACK);
-		setMinimumSize(new Dimension(800, 200)); // Minimum size vital when using BoxLayout
-		setMaximumSize(new Dimension(800, 200));
+		
+		setPreferredSize(new Dimension(800, 200));
 
 		score = 0;
 
@@ -44,6 +44,9 @@ public class LightUpPanel extends JPanel implements ActionListener {
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);
+		
+		g.setColor(Color.RED);
+		g.drawLine(0, 199, 799, 199); // SHOW BASELINE
 
 		g.setFont(new Font("Serif", Font.BOLD, 15));
 		if (keysPressedNow.contains(KeyEvent.VK_P)) {

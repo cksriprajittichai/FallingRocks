@@ -2,6 +2,8 @@ package gamepanel;
 
 import java.awt.Color;
 
+import non_gamepanel.GameManager;
+
 public class Rock {
 
 	private float xPos;
@@ -10,8 +12,6 @@ public class Rock {
 	private int height;
 	private float currentVel;
 	private final float gravitationalAcc;
-	private int xBound; // Bound of GamePanel
-	private int yBound;
 	private Color color;
 
 	public Rock(int xPos_arg, int yPos_arg, int width_arg, int height_arg, int currentVel_arg) {
@@ -20,10 +20,8 @@ public class Rock {
 		width = width_arg;
 		height = height_arg;
 
-		xBound = 799;
-		yBound = 599;
 		currentVel = currentVel_arg;
-		gravitationalAcc = 0.005f;
+		gravitationalAcc = 0.001f;
 
 		color = Color.RED;
 	}
@@ -33,13 +31,13 @@ public class Rock {
 		switch (direction) {
 		case 'D':
 			if (slowDownActivated == true) {
-				yPos += (currentVel * 0.5f); // Slow down
+				yPos += (currentVel * 0.7f); // Slow down
 			} else {
 				yPos += currentVel; // Positive y position is farther down the panel
 				currentVel += gravitationalAcc;
 			}
-			
-			if (yPos > yBound) { // Delete the rock when the whole thing exits screen
+
+			if (yPos > GameManager.bottomYBound) { // Delete the rock when the whole thing exits screen
 				return false;
 			}
 			break;
@@ -86,22 +84,6 @@ public class Rock {
 
 	public void setCurrentVel(float currentVel) {
 		this.currentVel = currentVel;
-	}
-	
-	public int getxBound() {
-		return xBound;
-	}
-
-	public void setxBound(int xBound) {
-		this.xBound = xBound;
-	}
-
-	public int getyBound() {
-		return yBound;
-	}
-
-	public void setyBound(int yBound) {
-		this.yBound = yBound;
 	}
 
 	public Color getColor() {
