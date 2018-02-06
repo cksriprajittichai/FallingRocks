@@ -4,8 +4,6 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Random;
 
-import non_gamepanel.GameManager;
-
 public class RockGenerator {
 
 	// Max bounds are inclusive
@@ -18,52 +16,36 @@ public class RockGenerator {
 	private ArrayList<Color> possibleColors;
 	private Random random;
 
-	// 1 is Easy, 2 is Medium, 3 is Hard
-	public RockGenerator() {
+	public RockGenerator(GamePanel gamePanel) {
 		random = new Random();
 
 		possibleColors = new ArrayList<Color>();
 		possibleColors.add(Color.BLUE);
 		possibleColors.add(Color.BLUE);
 		possibleColors.add(Color.YELLOW);
-		possibleColors.add(Color.YELLOW);
-		possibleColors.add(Color.GRAY);
-		possibleColors.add(Color.LIGHT_GRAY);
-		// possibleColors.add(Color.DARK_GRAY);
 		possibleColors.add(Color.GREEN);
 		possibleColors.add(Color.GREEN);
 		possibleColors.add(Color.MAGENTA);
 		possibleColors.add(Color.MAGENTA);
 		possibleColors.add(Color.ORANGE);
-		possibleColors.add(Color.ORANGE);
-		possibleColors.add(Color.PINK);
-		possibleColors.add(Color.PINK);
 		possibleColors.add(Color.RED);
 		possibleColors.add(Color.RED);
-		possibleColors.add(Color.WHITE);
 		possibleColors.add(Color.WHITE);
 
-		if (GameManager.DIFFICULTY.compareTo("Easy") == 0) {
+		if (gamePanel.getMode().equals("ZEN")) {
 			MIN_WIDTH = 20;
 			MIN_HEIGHT = 20;
-			MAX_WIDTH = 30;
-			MAX_HEIGHT = 30;
-			STARTING_VEL_MIN = 0;
-			STARTING_VEL_MAX = 1;
-		} else if (GameManager.DIFFICULTY.compareTo("Medium") == 0) {
-			MIN_WIDTH = 15;
-			MIN_HEIGHT = 15;
 			MAX_WIDTH = 50;
 			MAX_HEIGHT = 50;
-			STARTING_VEL_MIN = 1;
-			STARTING_VEL_MAX = 3;
-		} else if (GameManager.DIFFICULTY.compareTo("Hard") == 0) {
-			MIN_WIDTH = 10;
-			MIN_HEIGHT = 5;
-			MAX_WIDTH = 80;
-			MAX_HEIGHT = 80;
 			STARTING_VEL_MIN = 2;
-			STARTING_VEL_MAX = 5;
+			STARTING_VEL_MAX = 3;
+		} else if (gamePanel.getMode().equals("RUSH")) {
+			MIN_WIDTH = 20;
+			MIN_HEIGHT = 20;
+			MAX_WIDTH = 50;
+			MAX_HEIGHT = 50;
+			STARTING_VEL_MIN = 3;
+			STARTING_VEL_MAX = 4;
 		}
 	}
 
@@ -77,9 +59,19 @@ public class RockGenerator {
 		// screen. Also generate rocks that have portions of their left-width in the playable range of the screen, that
 		// are cutoff by the right edge of the playable screen.
 		// Example: If the rock has width 10, the possible xPos that it can spawn in are [-9, 799].
-		return new Rock(random.nextInt(GamePanel.WIDTH + width - 2) - (width - 1), -height + 1, width, height,
+
+		// Formula for random numbers in a range: random * (max - min) + min.
+		float b = (random.nextFloat() * (1.0f - 0.6f)) + 0.6f; // Brightness
+		float h = (random.nextFloat() * (1.0f - 0.3f)) + 0.3f; // Hue is the actual color's number..?
+		float s = (random.nextFloat() * (1.0f - 0.3f) + 0.3f); // Saturation is the intensity of the color (hue)
+		return new Rock(random.nextInt(800 + width - 2) - (width - 1), -height + 1, width, height,
 				random.nextInt((int) (STARTING_VEL_MAX - STARTING_VEL_MIN)) + STARTING_VEL_MIN + random.nextFloat(),
-				possibleColors.get(random.nextInt(possibleColors.size())));
+				Color.getHSBColor(h, s, b));
+
+		// return new Rock(random.nextInt(800 + width - 2) - (width - 1), -height + 1, width, height,
+		// random.nextInt((int) (STARTING_VEL_MAX - STARTING_VEL_MIN)) + STARTING_VEL_MIN + random.nextFloat(),
+		// possibleColors.get(random.nextInt(possibleColors.size())));
+
 	}
 
 }

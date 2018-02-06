@@ -1,7 +1,6 @@
 package non_gamepanel;
 
 import java.awt.Dimension;
-import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -12,104 +11,144 @@ import javax.swing.Timer;
 
 import gamepanel.GamePanel;
 
-public class GameManager extends JFrame implements ActionListener {
+public class Manager implements ActionListener {
 
-	private static final long serialVersionUID = 1L;
-	private boolean gameRunning;
+	public static Settings settings;
+	private boolean inGamePanel;
+	private JFrame frame;
 	private JPanel topPanel;
+	private MainMenuPanel mainMenuPanel;
+	private OptionsPanel optionsPanel;
 	private GamePanel gamePanel;
 	private LightUpPanel lightUpPanel;
-	private GameOverPanel gameOverPanel;
+	private KeyConverter keyConverter;
 	private Timer timer;
-	
-	public static int leftXBound;
-	public static int rightXBound;
-	public static int topYBound;
-	public static int bottomYBound;
 
-	public GameManager() {
-		Insets insets = getInsets();
-		
-		leftXBound = insets.left;
-		rightXBound = insets.left + 800;
-		topYBound = insets.top;
-		bottomYBound = insets.top + 600;
-		System.out.printf("leftX, rightX, topY, bottomY: %d, %d, %d, %d\n", leftXBound, rightXBound, topYBound, bottomYBound);
-		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		getContentPane().setPreferredSize(new Dimension(800, 800));
-		pack(); // Vital
-		
-		setResizable(false);
-		setLocationRelativeTo(null);
+	public Manager() {
+		frame = new JFrame();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setTitle("FALLING ROCKS");
+		frame.getContentPane().setPreferredSize(new Dimension(800, 800));
+		frame.pack(); // Vital
+		frame.setResizable(false);
+		frame.setLocationRelativeTo(null);
 
-		gameRunning = false;
+		inGamePanel = false;
 
 		topPanel = new JPanel();
-		topPanel.setMinimumSize(new Dimension(getInsets().left + getInsets().right + 800, getInsets().bottom + getInsets().top + 800));
-		topPanel.setMaximumSize(new Dimension(getInsets().left + getInsets().right + 800, getInsets().bottom + getInsets().top + 800));
-
-		gamePanel = null;
-		lightUpPanel = null;
-		gameOverPanel = null;
-
-		timer = null;
-		
-		this.setTitle("window is "+ this.getWidth() + " by "+ this.getHeight());
-	}
-
-	// Initializes gamePanel and lightUpPanel, and adds them to top-level
-	// container (topPanel), and starts game.
-	public void startNewGame() {
-		gameRunning = true;
-
-		KeyConverter listener = new KeyConverter();
-		gamePanel = new GamePanel(listener);
-		lightUpPanel = new LightUpPanel(listener);
-
+		topPanel.setPreferredSize(new Dimension(800, 800));
 		topPanel.setLayout(new BoxLayout(topPanel, BoxLayout.Y_AXIS)); // GPanel on top of bPanel
-		topPanel.add(gamePanel);
-		topPanel.add(lightUpPanel);
-		topPanel.revalidate();
-		topPanel.addKeyListener(listener);
+		frame.add(topPanel);
 
-		getContentPane().add(topPanel);
-		setVisible(true);
+		topPanel.requestFocusInWindow(); // Vital
 
-		topPanel.requestFocusInWindow(); // Not required if keyListener is added to frame instead of topPanel
+		keyConverter = new KeyConverter();
+		topPanel.addKeyListener(keyConverter);
 
-		timer = new Timer(5, null);
-		timer.addActionListener(gamePanel);
-		timer.addActionListener(lightUpPanel);
+		settings = new Settings(); // Tries to read settings from local file
+
+		// Timer fires an ActionEvent to its ActionListeners every 15 milliseconds, this means there are ~67
+		// ActionEvents fired every second. The timer never permanently stops, because the GameManager always needs it
+		// to listen to player commands.
+		timer = new Timer(15, null);
 		timer.addActionListener(this);
 		timer.start();
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (gameRunning == true && gamePanel.getGameOverStatus() == true) { // If the game is running but
-																			// should be stopped
-			gameRunning = false;
+		if (inGamePanel == true && gamePanel.isGameOver() == true) { // If the game is running but should stop
 
-			timer.removeActionListener(gamePanel); // Delete gamePanel and lightUpPanel objects
-			timer.removeActionListener(lightUpPanel);
-			gamePanel = null;
-			lightUpPanel = null;
+			if (gamePanel.getMode().equals("RUSH") && gamePanel.getScore() > settings.getHighScore()) {
+				settings.setHighScore(gamePanel.getScore());
+			}
 
-			topPanel.removeAll();
-			gameOverPanel = new GameOverPanel();
-			topPanel.add(gameOverPanel);
-			topPanel.revalidate();
+			timer.addActionListener(gamePanel.getDrawnGameOverRectangle());
 
-		} else if (gameRunning == false) {
-			if (gameOverPanel.isPlayAgainPressed() == true) {
+			/** !!! */
+			if (gamePanel.getDrawnGameOverRectangle().isPlayAgainPressed()) {
+				timer.removeActionListener(lightUpPanel);
+				timer.removeActionListener(gamePanel.getDrawnGameOverRectangle());
+				timer.removeActionListener(gamePanel);
 				topPanel.removeAll();
-				gameOverPanel = null;
-				startNewGame();
+				String lastPlayedMode = gamePanel.getMode();
+				lightUpPanel = null; // Make null first, because lightUpPanel has a reference to gamePanel
+				gamePanel = null;
+				inGamePanel = false;
+				startNewGame(lastPlayedMode);
+			} else if (gamePanel.getDrawnGameOverRectangle().isMainMenuPressed()) {
+				timer.removeActionListener(lightUpPanel);
+				timer.removeActionListener(gamePanel.getDrawnGameOverRectangle());
+				timer.removeActionListener(gamePanel);
+				topPanel.removeAll();
+				lightUpPanel = null;
+				gamePanel = null;
+				inGamePanel = false;
+				goToMainMenu();
+			}
+			/** !!! */
+
+		} else if (inGamePanel == false) { // If in the gamePanel
+			if (mainMenuPanel != null) { // If player is in the mainMenuPanel
+				if (mainMenuPanel.isRushPressed()) {
+					timer.stop();
+					timer.removeActionListener(mainMenuPanel);
+					topPanel.removeAll();
+					mainMenuPanel = null;
+					startNewGame("RUSH");
+				} else if (mainMenuPanel.isZenPressed()) {
+					timer.stop();
+					timer.removeActionListener(mainMenuPanel);
+					topPanel.removeAll();
+					mainMenuPanel = null;
+					startNewGame("ZEN");
+				} else if (mainMenuPanel.isOptionsPressed()) {
+					timer.removeActionListener(mainMenuPanel);
+					topPanel.removeAll();
+					mainMenuPanel = null;
+					goToOptionsPanel();
+				} else if (mainMenuPanel.isHelpPressed()) {
+					/** Go to help panel */
+				}
 			}
 		}
+	}
 
+	// This is the first function called
+	public void goToMainMenu() {
+		mainMenuPanel = new MainMenuPanel(keyConverter);
+		timer.addActionListener(mainMenuPanel);
+
+		topPanel.add(mainMenuPanel);
+		topPanel.revalidate();
+
+		frame.setVisible(true);
+	}
+
+	public void goToOptionsPanel() {
+		optionsPanel = new OptionsPanel(keyConverter);
+		timer.addActionListener(optionsPanel);
+
+		topPanel.add(optionsPanel);
+		topPanel.revalidate();
+	}
+
+	// Initializes gamePanel and lightUpPanel, and adds them to top-level container (topPanel), and starts game.
+	public void startNewGame(String mode) {
+		inGamePanel = true;
+
+		gamePanel = new GamePanel(keyConverter, mode); /** ENTER MODE HERE */
+		lightUpPanel = new LightUpPanel(keyConverter, gamePanel);
+
+		topPanel.add(gamePanel);
+		topPanel.add(lightUpPanel);
+		topPanel.revalidate();
+		topPanel.addKeyListener(keyConverter);
+		topPanel.requestFocusInWindow();
+
+		timer.addActionListener(gamePanel);
+		timer.addActionListener(lightUpPanel);
+		timer.restart(); // Clean start
 	}
 
 }

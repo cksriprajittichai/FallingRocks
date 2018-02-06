@@ -1,8 +1,7 @@
 package gamepanel;
 
 import java.awt.Color;
-
-import non_gamepanel.GameManager;
+import java.awt.Rectangle;
 
 public class Rock {
 
@@ -12,9 +11,10 @@ public class Rock {
 	private int height;
 	private float currentVel;
 	private final float gravitationalAcc;
+	private boolean inBounds;
 	private Color color;
 
-	public Rock(int xPos_arg, int yPos_arg, int width_arg, int height_arg, int currentVel_arg) {
+	public Rock(int xPos_arg, int yPos_arg, int width_arg, int height_arg, float currentVel_arg, Color color_arg) {
 		xPos = xPos_arg;
 		yPos = yPos_arg;
 		width = width_arg;
@@ -23,27 +23,29 @@ public class Rock {
 		currentVel = currentVel_arg;
 		gravitationalAcc = 0.001f;
 
-		color = Color.RED;
+		inBounds = true; // Assume in bounds initialization
+
+		color = color_arg;
 	}
 
-	// Returns true if the whole rock is still above the ground.
-	public boolean move(char direction, boolean slowDownActivated) {
-		switch (direction) {
-		case 'D':
-			if (slowDownActivated == true) {
-				yPos += (currentVel * 0.7f); // Slow down
-			} else {
-				yPos += currentVel; // Positive y position is farther down the panel
-				currentVel += gravitationalAcc;
-			}
-
-			if (yPos > GameManager.bottomYBound) { // Delete the rock when the whole thing exits screen
-				return false;
-			}
-			break;
+	// Updates the position of the rock. Sets inBounds to false if rock exits bounds. Accounts for slowDown effect.
+	public void move(boolean slowDownActivated) {
+		if (slowDownActivated == true) {
+			yPos += (currentVel * 0.5f); // Slow down
+		} else {
+			yPos += currentVel; // Positive y position is farther down the panel
+			currentVel += gravitationalAcc;
 		}
 
-		return true;
+		if (yPos > 599) { // When the whole thing exits the screen
+			inBounds = false;
+		}
+	}
+
+	// Use Java's intersects (Class Rectangle) method. Returns true if this rock is touching the @param user.
+	public boolean isTouchingUser(User user) {
+		return new Rectangle((int) user.getxPos(), (int) user.getyPos(), user.getWidth(), user.getHeight())
+				.intersects(new Rectangle((int) getxPos(), (int) getyPos(), getWidth(), getHeight()));
 	}
 
 	public float getxPos() {
@@ -84,6 +86,18 @@ public class Rock {
 
 	public void setCurrentVel(float currentVel) {
 		this.currentVel = currentVel;
+	}
+
+	public float getgraviationalAcc() {
+		return gravitationalAcc;
+	}
+
+	public boolean isInBounds() {
+		return inBounds;
+	}
+
+	public void setInBounds(boolean inBounds) {
+		this.inBounds = inBounds;
 	}
 
 	public Color getColor() {
