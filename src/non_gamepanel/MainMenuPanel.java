@@ -1,189 +1,178 @@
 package non_gamepanel;
 
-import java.awt.Color;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Point;
-import java.awt.RenderingHints;
-import java.awt.Toolkit;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Random;
 
-import javax.swing.ImageIcon;
-import javax.swing.JPanel;
+public class MainMenuPanel extends JPanel {
 
-public class MainMenuPanel extends JPanel implements ActionListener {
+    private PanelSwitchListener panelSwitchListener;
 
-	private static final long serialVersionUID = 1L;
-	private ArrayList<ImageIcon> backgroundImageList;
-	private ImageIcon currentBackground;
-	private DrawnLabel titleLabel;
-	private DrawnLabel highScoreLabel;
-	private DrawnLabel rushLabel;
-	private DrawnLabel zenLabel;
-	private DrawnLabel optionsLabel;
-	private DrawnLabel helpLabel;
-	private DrawnLabel drawnLabels[];
-	private int focusIndex; // Rush = 0, zen = 1, options = 2, help = 4 (indexes in drawnLabels).
-	private HashSet<Integer> keysPressedNow;
-	private HashSet<Integer> pendingMoves; // When up or down is pressed, move the focus if possible. Add up or down to
-											// this set. Do not allow another up or down move to happen until up or down
-											// is removed from this set (move is cleared = button released).
+    private static final int FONT_INCREASE_SIZE = 4;
 
-	public MainMenuPanel(KeyConverter keyConverter) {
-		setupBackgroundImageList();
-		currentBackground = backgroundImageList.get(new Random().nextInt(backgroundImageList.size()));
+    private ArrayList<ImageIcon> backgroundImageList;
+    private ImageIcon currentBackground;
 
-		keysPressedNow = keyConverter.getKeysPressedNow();
-		keysPressedNow.clear();
-		pendingMoves = new HashSet<Integer>();
+    // XPos of these DrawnLabels is arbitrary, because they are specifically aligned when painted.
+    private DrawnLabel titleLabel = new DrawnLabel(0, 100, "FALLING ROCKS", new Font("Serif", Font.BOLD, 92), Color.WHITE, 0);
+    private DrawnLabel highScoreLabel = new DrawnLabel(0, 214, "BEST: " + Settings.getInstance().getHighScore(), new Font("Arial_Black", Font.BOLD, 40), Color.WHITE, 0);
 
-		setPreferredSize(new Dimension(800, 800));
-		setOpaque(false);
+    private DrawnLabel rushLabel = new DrawnLabel(0, 356, "PLAY RUSH", new Font("Impact", Font.PLAIN, 70), Color.WHITE, FONT_INCREASE_SIZE);
+    private DrawnLabel zenLabel = new DrawnLabel(0, 451, "PLAY ZEN", new Font("Impact", Font.PLAIN, 70), Color.WHITE, FONT_INCREASE_SIZE);
+    private DrawnLabel optionsLabel = new DrawnLabel(0, 526, "OPTIONS", new Font("Impact", Font.PLAIN, 55), Color.WHITE, FONT_INCREASE_SIZE);
+    private DrawnLabel exitLabel = new DrawnLabel(0, 596, "EXIT", new Font("Impact", Font.PLAIN, 55), Color.WHITE, FONT_INCREASE_SIZE);
 
-		// Hide cursor
-		BufferedImage cursorImg = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB);
-		Cursor blankCursor = Toolkit.getDefaultToolkit().createCustomCursor(cursorImg, new Point(0, 0), "blank cursor");
-		setCursor(blankCursor);
+    private DrawnLabel drawnLabels[] = new DrawnLabel[4];
+    private int focusIndex = 0;
 
-		focusIndex = 0; // Initiate focus on rushLabel
 
-		// XPos of DrawnLabels is arbitrary, because they are all center aligned (function exists for this)
-		titleLabel = new DrawnLabel(0, 150, "FALLING ROCKS", new Font("Serif", Font.BOLD, 92), Color.WHITE);
-		highScoreLabel = new DrawnLabel(0, 254, "BEST: " + Manager.settings.getHighScore(),
-				new Font("Arial_Black", Font.PLAIN, 40), Color.WHITE);
+    public MainMenuPanel(PanelSwitchListener panelSwitchListener) {
+        setPreferredSize(new Dimension(800, 800));
+        this.panelSwitchListener = panelSwitchListener;
 
-		rushLabel = new DrawnLabel(0, 386, "PLAY RUSH", new Font("Impact", Font.PLAIN, 70), Color.WHITE);
-		zenLabel = new DrawnLabel(0, 482, "PLAY ZEN", new Font("Impact", Font.PLAIN, 70), Color.WHITE);
-		optionsLabel = new DrawnLabel(0, 556, "OPTIONS", new Font("Impact", Font.PLAIN, 50), Color.WHITE);
-		helpLabel = new DrawnLabel(0, 626, "HELP", new Font("Impact", Font.PLAIN, 50), Color.WHITE);
+        initInputMap();
+        initActionMap();
 
-		drawnLabels = new DrawnLabel[4];
-		drawnLabels[0] = rushLabel;
-		drawnLabels[1] = zenLabel;
-		drawnLabels[2] = optionsLabel;
-		drawnLabels[3] = helpLabel;
-	}
+        initBackgroundImageList();
+        currentBackground = backgroundImageList.get(new Random().nextInt(backgroundImageList.size()));
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		if (keysPressedNow.contains(KeyEvent.VK_SPACE)) {
-			drawnLabels[focusIndex].setPressed(true); // Selection made, exit
-			return;
-		}
+        drawnLabels[0] = rushLabel;
+        drawnLabels[1] = zenLabel;
+        drawnLabels[2] = optionsLabel;
+        drawnLabels[3] = exitLabel;
 
-		int oldFocusIndex = focusIndex; // Only repaint if changes are made
+        // Initialize DrawnLabel with focus
+        drawnLabels[focusIndex].setFontSize(drawnLabels[focusIndex].getFontSize() + FONT_INCREASE_SIZE);
+    }
 
-		if (keysPressedNow.contains(KeyEvent.VK_UP)) {
-			if (focusIndex > 0 && !pendingMoves.contains(KeyEvent.VK_UP)) {
-				focusIndex--;
-				pendingMoves.add(KeyEvent.VK_UP);
-			}
-		} else { // Up isn't being pressed now, up move is cleared from pendingMoves
-			pendingMoves.remove(KeyEvent.VK_UP);
-		}
-		if (keysPressedNow.contains(KeyEvent.VK_DOWN)) {
-			if (focusIndex < 3 && !pendingMoves.contains(KeyEvent.VK_DOWN)) {
-				focusIndex++;
-				pendingMoves.add(KeyEvent.VK_DOWN);
-			}
-		} else {
-			pendingMoves.remove(KeyEvent.VK_DOWN);
-		}
 
-		if (oldFocusIndex != focusIndex) {
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
 
-			// Change the fontSize of DrawnLabel that lost focus and of DrawnLabel that now has focus
-			drawnLabels[oldFocusIndex].setFontSize(drawnLabels[oldFocusIndex].getFontSize() - 7);
-			drawnLabels[focusIndex].setFontSize(drawnLabels[focusIndex].getFontSize() + 7);
+        // Display antialiased text using rendering hints
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 
-			repaint(); // Only repaint if changes were made
-		}
-	}
+        g2d.drawImage(currentBackground.getImage(), 0, 0, this);
 
-	@Override
-	public void paintComponent(Graphics g) {
-		super.paintComponent(g);
-		
-		Graphics2D g2d = (Graphics2D) g; // Display antialiased text using rendering hints
-		g2d.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+        g2d.setFont(titleLabel.getFont());
+        titleLabel.drawTextLayers(g2d, 4, Color.BLACK);
+        titleLabel.drawTextLayers(g2d, 3, Color.WHITE);
+        titleLabel.drawTextLayers(g2d, 2, Color.BLACK);
+        titleLabel.drawTextLayers(g2d, 1, Color.BLUE);
+        g2d.setColor(titleLabel.getColor());
+        g2d.drawString(titleLabel.getText(), titleLabel.getXPosCenteredStringInWidth(800), titleLabel.getYPos());
 
-		g2d.drawImage(currentBackground.getImage(), 0, 0, this);
+        g2d.setFont(highScoreLabel.getFont());
+        highScoreLabel.drawTextLayers(g2d, 2, Color.BLACK);
+        highScoreLabel.drawTextLayers(g2d, 1, Color.DARK_GRAY);
+        g2d.setColor(highScoreLabel.getColor());
+        g2d.drawString(highScoreLabel.getText(), highScoreLabel.getXPosCenteredStringInWidth(800), highScoreLabel.getYPos());
 
-		g2d.setFont(titleLabel.getFont());
-		titleLabel.drawTextLayers(g2d, 4, Color.BLACK);
-		titleLabel.drawTextLayers(g2d, 3, Color.WHITE);
-		titleLabel.drawTextLayers(g2d, 2, Color.BLACK);
-		titleLabel.drawTextLayers(g2d, 1, Color.BLUE);
-		g2d.setColor(titleLabel.getColor());
-		g2d.drawString(titleLabel.getText(), titleLabel.getXPosCenteredString(g2d), titleLabel.getYPos());
+        DrawnLabel drawnLabel;
+        for (int i = 0; i < drawnLabels.length; i++) {
+            drawnLabel = drawnLabels[i];
 
-		g2d.setFont(highScoreLabel.getFont());
-		highScoreLabel.drawTextLayers(g2d, 2, Color.BLACK);
-		highScoreLabel.drawTextLayers(g2d, 1, Color.DARK_GRAY);
-		g2d.setColor(highScoreLabel.getColor());
-		g2d.drawString(highScoreLabel.getText(), highScoreLabel.getXPosCenteredString(g2d), highScoreLabel.getYPos());
+            g2d.setFont(drawnLabel.getFont());
+            drawnLabel.drawTextLayers(g2d, 1, Color.BLACK);
+            g2d.setColor(drawnLabel.getColor());
+            g2d.drawString(drawnLabel.getText(), drawnLabel.getXPosCenteredStringInWidth(800), drawnLabel.getYPos());
 
-		DrawnLabel drawnLabel;
-		for (int index = 0; index < drawnLabels.length; index++) {
-			drawnLabel = drawnLabels[index];
-			g2d.setFont(drawnLabel.getFont());
+            if (i == focusIndex) {
+                // If the DrawnLabel at this index is in focus
 
-			if (index == focusIndex) { // The DrawnLabel at this index is in focus
+                // Draw underline. Algebra to find correct x2.
+                g2d.setColor(Color.BLACK);
+                g2d.fillRect(drawnLabel.getXPosCenteredStringInWidth(800) - 1, drawnLabel.getYPos() + 4, drawnLabel.getTextWidthFocused() + 2, 4);
+                g2d.setColor(Color.WHITE);
+                g2d.fillRect(drawnLabel.getXPosCenteredStringInWidth(800), drawnLabel.getYPos() + 5, drawnLabel.getTextWidthFocused(), 2);
+            }
+        }
+    }
 
-				// Draw underline. Algebra to find correct x2.
-				g2d.setColor(Color.BLACK);
-				g2d.fillRect(drawnLabel.getXPosCenteredString(g2d), (int) drawnLabel.getYPos() + 4,
-						2 * (400 - drawnLabel.getXPosCenteredString(g2d)), 4);
-				g2d.setColor(Color.WHITE);
-				g2d.fillRect(drawnLabel.getXPosCenteredString(g2d), (int) drawnLabel.getYPos() + 5,
-						2 * (400 - drawnLabel.getXPosCenteredString(g2d)), 2);
-			}
 
-			drawnLabel.drawTextLayers(g2d, 1, Color.BLACK);
-			g2d.setColor(drawnLabel.getColor());
-			g2d.drawString(drawnLabel.getText(), drawnLabel.getXPosCenteredString(g2d), drawnLabel.getYPos());
-		}
-	}
+    private void initInputMap() {
+        InputMap iMap = getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
 
-	private void setupBackgroundImageList() {
-		backgroundImageList = new ArrayList<ImageIcon>();
+        iMap.put(KeyStroke.getKeyStroke("SPACE"), "SPACE");
+        iMap.put(KeyStroke.getKeyStroke("DOWN"), "DOWN");
+        iMap.put(KeyStroke.getKeyStroke("UP"), "UP");
+    }
 
-		// Took 26 screenshots, first is background01.png, last is background26.png.
-		// Random colored rocks are screenshots 1 through 18, selected colored rocks are 19 through 26.
-		for (int count = 1; count <= 18; count++) {
-			if (count < 10) {
-				backgroundImageList
-						.add(new ImageIcon(Main.class.getResource("/background_images/background0" + count + ".png"))); // ?
-			} else {
-				backgroundImageList
-						.add(new ImageIcon(Main.class.getResource("/background_images/background" + count + ".png")));
-			}
-		}
-	}
 
-	public boolean isRushPressed() {
-		return rushLabel.isPressed();
-	}
+    private void initActionMap() {
+        ActionMap aMap = getActionMap();
 
-	public boolean isZenPressed() {
-		return zenLabel.isPressed();
-	}
+        aMap.put("SPACE", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                drawnLabels[focusIndex].setPressed(true);
+                panelSwitchListener.onPanelSwitch(PanelSwitchListener.MAIN_MENU_PANEL_EXIT);
+            }
+        });
+        aMap.put("DOWN", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (focusIndex < drawnLabels.length - 1) {
+                    // Change the fontSize of DrawnLabel that lost focus and of DrawnLabel that now has focus
+                    drawnLabels[focusIndex].setFontSize(drawnLabels[focusIndex].getFontSize() - FONT_INCREASE_SIZE);
+                    focusIndex++;
+                    drawnLabels[focusIndex].setFontSize(drawnLabels[focusIndex].getFontSize() + FONT_INCREASE_SIZE);
 
-	public boolean isOptionsPressed() {
-		return optionsLabel.isPressed();
-	}
+                    repaint();
+                }
+            }
+        });
+        aMap.put("UP", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (focusIndex > 0) {
+                    // Change the fontSize of DrawnLabel that lost focus and of DrawnLabel that now has focus
+                    drawnLabels[focusIndex].setFontSize(drawnLabels[focusIndex].getFontSize() - FONT_INCREASE_SIZE);
+                    focusIndex--;
+                    drawnLabels[focusIndex].setFontSize(drawnLabels[focusIndex].getFontSize() + FONT_INCREASE_SIZE);
 
-	public boolean isHelpPressed() {
-		return helpLabel.isPressed();
-	}
+                    repaint();
+                }
+            }
+        });
+    }
+
+
+    private void initBackgroundImageList() {
+        backgroundImageList = new ArrayList<>();
+
+        // First filename is "mainMenu0.png", last is "mainMenu18.png"
+        for (int count = 1; count <= 18; count++) {
+            if (count < 10) {
+                backgroundImageList.add(new ImageIcon("res/background_images/mainMenu0" + count + ".png"));
+            } else {
+                backgroundImageList.add(new ImageIcon("res/background_images/mainMenu" + count + ".png"));
+            }
+        }
+    }
+
+
+    public boolean isRushPressed() {
+        return rushLabel.isPressed();
+    }
+
+
+    public boolean isZenPressed() {
+        return zenLabel.isPressed();
+    }
+
+
+    public boolean isOptionsPressed() {
+        return optionsLabel.isPressed();
+    }
+
+
+    public boolean isExitPressed() {
+        return exitLabel.isPressed();
+    }
 
 }

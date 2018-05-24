@@ -1,0 +1,1004 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="510303f1-c52b-43e2-b898-e8762c06324a" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/res/background_images/mainMenu02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/background_images/mainMenu03.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/background_images/mainMenu04.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/background_images/mainMenu05.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/background_images/mainMenu06.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/background_images/mainMenu07.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/background_images/mainMenu08.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/background_images/mainMenu09.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/background_images/mainMenu10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/background_images/mainMenu11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/background_images/mainMenu12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/background_images/mainMenu13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/background_images/mainMenu14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/background_images/mainMenu15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/background_images/mainMenu16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/background_images/mainMenu17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/background_images/mainMenu18.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/background_images/stars.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/GamePanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/Rock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/RockFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/non_gamepanel/GameOverPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/non_gamepanel/PanelSwitchListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/non_gamepanel/SettingsUpdater.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/options/DrawnLabelWithTriangles.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/options/OptionsPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/options/OptionsPanelLabelSet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/options/Triangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/background_images/background02.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/background_images/background03.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/background_images/background04.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/background_images/background05.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/background_images/background06.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/background_images/background07.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/background_images/background08.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/background_images/background09.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/background_images/background10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/background_images/background11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/background_images/background12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/background_images/background13.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/background_images/background14.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/background_images/background15.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/background_images/background16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/background_images/background17.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/background_images/background18.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/background_images/background19.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/background_images/background20.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/background_images/background21.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/background_images/background22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/background_images/background23.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/background_images/background24.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/background_images/background25.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/background_images/background26.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/background_images/background01.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/background_images/mainMenu01.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gamepanel/GamePanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gamepanel/Rock.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gamepanel/RockGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gamepanel/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/non_gamepanel/Arrow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/non_gamepanel/Arrow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/non_gamepanel/DrawnGameOverRectangle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/non_gamepanel/DrawnLabel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/non_gamepanel/DrawnLabel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/non_gamepanel/KeyConverter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/non_gamepanel/LightUpPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/non_gamepanel/LightUpPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/non_gamepanel/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/non_gamepanel/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/non_gamepanel/MainMenuPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/non_gamepanel/MainMenuPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/non_gamepanel/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/non_gamepanel/Manager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/non_gamepanel/OptionsPanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/non_gamepanel/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/non_gamepanel/Settings.java" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="FallingRocks" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Manager.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/non_gamepanel/Manager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="27" column="47" lean-forward="true" selection-start-line="27" selection-start-column="47" selection-end-line="27" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin File" />
+        <option value="Singleton" />
+        <option value="Class" />
+        <option value="FxmlFile" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>settings</find>
+      <find>gamePanel</find>
+      <find>updatelim</find>
+      <find>Arrow</find>
+      <find>getCustomCenteredString(g2d)</find>
+      <find>image</find>
+      <find>bounds</find>
+      <find>drawpoly</find>
+      <find>drawPolygon</find>
+      <find>cyan</find>
+      <find>`</find>
+      <find>spaces</find>
+      <find>optionspane</find>
+      <find>keysPressedNow</find>
+      <find>pause</find>
+      <find>keyspressednow</find>
+      <find>index</find>
+      <find>private ImageIcon\[\] explosions \= \{new ImageIcon\(System\.getProperty\(\&quot;user\.home\&quot;\) \+ \&quot;\/stars\.jpg\&quot;\)\,\n            new ImageIcon\(System\.getProperty\(\&quot;user\.home\&quot;\) \+ \&quot;\/stars\.jpg\&quot;\)\,\n            new ImageIcon\(System\.getProperty\(\&quot;user\.home\&quot;\) \+ \&quot;\/stars\.jpg\&quot;\)\,\n            new ImageIcon\(System\.getProperty\(\&quot;user\.home\&quot;\) \+ \&quot;\/stars\.jpg\&quot;\)\,\n            new ImageIcon\(System\.getProperty\(\&quot;user\.home\&quot;\) \+ \&quot;\/stars\.jpg\&quot;\)\,\n            new ImageIcon\(System\.getProperty\(\&quot;user\.home\&quot;\) \+ \&quot;\/stars\.jpg\&quot;\)\,\n            new ImageIcon\(System\.getProperty\(\&quot;user\.home\&quot;\) \+ \&quot;\/stars\.jpg\&quot;\)\}\;</find>
+      <find>private ImageIcon\[\] explosions \= \{new ImageIcon\(System\.getProperty\(\&quot;user\.home\&quot;\) \+ \&quot;\/explosion30\.jpg\&quot;\)\,\n            new ImageIcon\(System\.getProperty\(\&quot;user\.home\&quot;\) \+ \&quot;\/explosion50\.jpg\&quot;\)\,\n            new ImageIcon\(System\.getProperty\(\&quot;user\.home\&quot;\) \+ \&quot;\/explosion70\.jpg\&quot;\)\,\n            new ImageIcon\(System\.getProperty\(\&quot;user\.home\&quot;\) \+ \&quot;\/explosion90\.jpg\&quot;\)\,\n            new ImageIcon\(System\.getProperty\(\&quot;user\.home\&quot;\) \+ \&quot;\/explosion110\.jpg\&quot;\)\,\n            new ImageIcon\(System\.getProperty\(\&quot;user\.home\&quot;\) \+ \&quot;\/explosion130\.jpg\&quot;\)\,\n            new ImageIcon\(System\.getProperty\(\&quot;user\.home\&quot;\) \+ \&quot;\/explosion150\.jpg\&quot;\)\}\;</find>
+      <find>jpg</find>
+      <find>new ImageIcon</find>
+      <find>initbackg</find>
+      <find>System.getProperty\(\&quot;user.home\&quot;\)</find>
+      <find>\+ \&quot;</find>
+      <find>exitGamePanel</find>
+      <find>pauseColor \= Color\.GRAY\;\n                slowDownColor \= Color\.GRAY\;\n                leftColor \= Color\.GRAY\;\n                rightColor \= Color\.GRAY\;\n                upColor \= Color\.GRAY\;\n                downColor \= Color\.GRAY\;</find>
+      <find>GRAY</find>
+      <find>Color.GRAY</find>
+      <find>starB</find>
+      <find>stars</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>scale</replace>
+      <replace>xPos</replace>
+      <replace>yPos</replace>
+      <replace>yVel</replace>
+      <replace>user</replace>
+      <replace>Triangle</replace>
+      <replace>getCustomCenteredString(g2d, 800)</replace>
+      <replace>fillPolygon</replace>
+      <replace>keysPressed</replace>
+      <replace>explosion</replace>
+      <replace>png</replace>
+      <replace />
+      <replace>&quot;res/explosion_images</replace>
+      <replace>DARK_GRAY</replace>
+      <replace>Color.DARK_GRAY</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$APPLICATION_CONFIG_DIR$/idea.properties" />
+        <option value="$PROJECT_DIR$/src/gamepanel/Rock.java" />
+        <option value="$PROJECT_DIR$/src/non_gamepanel/DrawnGameOverRect.java" />
+        <option value="$PROJECT_DIR$/src/gamepanel/User.java" />
+        <option value="$PROJECT_DIR$/src/gamepanel/RockFactory.java" />
+        <option value="$PROJECT_DIR$/src/non_gamepanel/Arrow.java" />
+        <option value="$PROJECT_DIR$/src/gamepanel/GamePanel.java" />
+        <option value="$PROJECT_DIR$/src/non_gamepanel/ConcreteAction.java" />
+        <option value="$PROJECT_DIR$/src/non_gamepanel/Triangle.java" />
+        <option value="$PROJECT_DIR$/src/non_gamepanel/DrawnLabelWithTriangles.java" />
+        <option value="$PROJECT_DIR$/src/non_gamepanel/OptionsPanel.java" />
+        <option value="$PROJECT_DIR$/src/non_gamepanel/OPanelLabelSet.java" />
+        <option value="$PROJECT_DIR$/src/non_gamepanel/OptionsPanelLabelSet.java" />
+        <option value="$PROJECT_DIR$/src/non_gamepanel/KeyConverter.java" />
+        <option value="$PROJECT_DIR$/src/non_gamepanel/AfterGamePanel.java" />
+        <option value="$PROJECT_DIR$/src/non_gamepanel/DrawnGameOver.java" />
+        <option value="$PROJECT_DIR$/src/non_gamepanel/Main.java" />
+        <option value="$PROJECT_DIR$/src/non_gamepanel/LightUpPanel.java" />
+        <option value="$PROJECT_DIR$/src/options/OptionsPanelLabelSet.java" />
+        <option value="$PROJECT_DIR$/src/options/OptionsPanel.java" />
+        <option value="$PROJECT_DIR$/src/non_gamepanel/Manager.java" />
+        <option value="$PROJECT_DIR$/src/non_gamepanel/MainMenuPanel.java" />
+        <option value="$PROJECT_DIR$/src/non_gamepanel/Settings.java" />
+        <option value="$PROJECT_DIR$/src/non_gamepanel/SettingsUpdater.java" />
+        <option value="$PROJECT_DIR$/src/options/DrawnLabelWithTriangles.java" />
+        <option value="$PROJECT_DIR$/src/options/Triangle.java" />
+        <option value="$PROJECT_DIR$/src/game/GamePanel.java" />
+        <option value="$PROJECT_DIR$/src/game/Rock.java" />
+        <option value="$PROJECT_DIR$/src/game/RockFactory.java" />
+        <option value="$PROJECT_DIR$/src/game/User.java" />
+        <option value="$PROJECT_DIR$/src/non_gamepanel/DrawnLabel.java" />
+        <option value="$PROJECT_DIR$/src/non_gamepanel/GameOverPanel.java" />
+        <option value="$PROJECT_DIR$/src/non_gamepanel/PanelSwitchListener.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="23" />
+    <option name="width" value="1238" />
+    <option name="height" value="877" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Abstraction issuesJava</id>
+          </State>
+          <State>
+            <id>Assignment issuesJava</id>
+          </State>
+          <State>
+            <id>Code style issuesJava</id>
+          </State>
+          <State>
+            <id>Declaration redundancyJava</id>
+          </State>
+          <State>
+            <id>Java</id>
+          </State>
+          <State>
+            <id>Java 8Java language level migration aidsJava</id>
+          </State>
+          <State>
+            <id>Java language level migration aidsJava</id>
+          </State>
+          <State>
+            <id>Kotlin</id>
+          </State>
+          <State>
+            <id>Method metricsJava</id>
+          </State>
+          <State>
+            <id>Naming conventionsJava</id>
+          </State>
+          <State>
+            <id>Plugin DevKit</id>
+          </State>
+          <State>
+            <id>Probable bugsKotlin</id>
+          </State>
+          <State>
+            <id>Redundant constructsKotlin</id>
+          </State>
+          <State>
+            <id>Serialization issuesJava</id>
+          </State>
+          <State>
+            <id>Style issuesKotlin</id>
+          </State>
+          <State>
+            <id>Verbose or redundant code constructsJava</id>
+          </State>
+          <State>
+            <id>Visibility issuesJava</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>ConvertReferenceToLambda</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="FallingRocks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FallingRocks" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FallingRocks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FallingRocks" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FallingRocks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FallingRocks" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FallingRocks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FallingRocks" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FallingRocks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FallingRocks" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="non_gamepanel" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FallingRocks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FallingRocks" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="options" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="gamepa&#9;FILE&#9;file:///Users/Chase/javaProjects/FallingRocks/src/game/GamePanel.java&#10;lightup&#9;FILE&#9;file:///Users/Chase/javaProjects/FallingRocks/src/non_gamepanel/LightUpPanel.java&#10;mainmen&#9;FILE&#9;file:///Users/Chase/javaProjects/FallingRocks/src/non_gamepanel/MainMenuPanel.java&#10;mainme&#9;FILE&#9;file:///Users/Chase/javaProjects/FallingRocks/src/non_gamepanel/MainMenuPanel.java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.build" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="optionspanel" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="non_gamepanel.Main" />
+      <module name="FallingRocks" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="options.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>$USER_HOME$/.subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="510303f1-c52b-43e2-b898-e8762c06324a" name="Default" comment="" />
+      <created>1521699752784</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1521699752784</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1440" height="877" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.15815692" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info id="Image Layers" order="6" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50277776" side_tool="true" weight="0.20869565" />
+      <window_info anchor="right" id="Maven Projects" order="4" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49722221" visible="true" weight="0.23038605" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32876712" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32876712" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49937734" visible="true" weight="0.21805556" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.20174347" />
+      <window_info id="Structure" order="1" sideWeight="0.5006227" side_tool="true" weight="0.18402778" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="5" sideWeight="0.5006227" side_tool="true" weight="0.18402778" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="4" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/non_gamepanel/DrawnLabel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="45" column="28" lean-forward="true" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
+          <folding>
+            <element signature="imports" />
+            <element signature="e#3609#3610#0" />
+            <element signature="e#3636#3637#0" />
+            <element signature="e#3673#3674#0" />
+            <element signature="e#3705#3706#0" />
+            <element signature="e#3733#3734#0" />
+            <element signature="e#3760#3761#0" />
+            <element signature="e#3797#3798#0" />
+            <element signature="e#3829#3830#0" />
+            <element signature="e#3860#3861#0" />
+            <element signature="e#3887#3888#0" />
+            <element signature="e#4425#4426#0" />
+            <element signature="e#4453#4454#0" />
+            <element signature="e#4494#4495#0" />
+            <element signature="e#4528#4529#0" />
+            <element signature="e#4562#4563#0" />
+            <element signature="e#4592#4593#0" />
+            <element signature="e#4639#4640#0" />
+            <element signature="e#4677#4678#0" />
+            <element signature="e#4706#4707#0" />
+            <element signature="e#4733#4734#0" />
+            <element signature="e#4771#4772#0" />
+            <element signature="e#4803#4804#0" />
+            <element signature="e#4835#4836#0" />
+            <element signature="e#4872#4873#0" />
+            <element signature="e#4917#4918#0" />
+            <element signature="e#5000#5001#0" />
+            <element signature="e#5042#5043#0" />
+            <element signature="e#5083#5084#0" />
+            <element signature="e#5148#5149#0" />
+            <element signature="e#5208#5209#0" />
+            <element signature="e#5248#5249#0" />
+            <element signature="e#5287#5288#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/non_gamepanel/Manager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1665">
+          <caret line="124" column="37" selection-start-line="124" selection-start-column="37" selection-end-line="124" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/options/OptionsPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1305">
+          <caret line="87" column="24" selection-start-line="87" selection-start-column="24" selection-end-line="87" selection-end-column="24" />
+          <folding>
+            <element signature="e#12429#12430#0" expanded="true" />
+            <element signature="e#12488#12489#0" expanded="true" />
+            <element signature="e#12536#12537#0" expanded="true" />
+            <element signature="e#12605#12606#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/non_gamepanel/DrawnLabel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="885">
+          <caret line="63" column="56" selection-start-line="63" selection-start-column="56" selection-end-line="63" selection-end-column="56" />
+          <folding>
+            <element signature="imports" />
+            <element signature="e#3609#3610#0" />
+            <element signature="e#3636#3637#0" />
+            <element signature="e#3673#3674#0" />
+            <element signature="e#3705#3706#0" />
+            <element signature="e#3733#3734#0" />
+            <element signature="e#3760#3761#0" />
+            <element signature="e#3797#3798#0" />
+            <element signature="e#3829#3830#0" />
+            <element signature="e#3860#3861#0" />
+            <element signature="e#3887#3888#0" />
+            <element signature="e#4425#4426#0" />
+            <element signature="e#4453#4454#0" />
+            <element signature="e#4494#4495#0" />
+            <element signature="e#4528#4529#0" />
+            <element signature="e#4562#4563#0" />
+            <element signature="e#4592#4593#0" />
+            <element signature="e#4639#4640#0" />
+            <element signature="e#4677#4678#0" />
+            <element signature="e#4706#4707#0" />
+            <element signature="e#4733#4734#0" />
+            <element signature="e#4771#4772#0" />
+            <element signature="e#4803#4804#0" />
+            <element signature="e#4835#4836#0" />
+            <element signature="e#4872#4873#0" />
+            <element signature="e#4917#4918#0" />
+            <element signature="e#5000#5001#0" />
+            <element signature="e#5042#5043#0" />
+            <element signature="e#5083#5084#0" />
+            <element signature="e#5148#5149#0" />
+            <element signature="e#5208#5209#0" />
+            <element signature="e#5248#5249#0" />
+            <element signature="e#5287#5288#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/options/OptionsPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1320">
+          <caret line="99" column="38" lean-forward="true" selection-start-line="99" selection-start-column="38" selection-end-line="99" selection-end-column="38" />
+          <folding>
+            <element signature="e#12429#12430#0" expanded="true" />
+            <element signature="e#12488#12489#0" expanded="true" />
+            <element signature="e#12536#12537#0" expanded="true" />
+            <element signature="e#12605#12606#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/non_gamepanel/Settings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="50" column="43" selection-start-line="50" selection-start-column="43" selection-end-line="50" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/options/OptionsPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="50" column="41" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
+          <folding>
+            <element signature="e#12429#12430#0" expanded="true" />
+            <element signature="e#12488#12489#0" expanded="true" />
+            <element signature="e#12536#12537#0" expanded="true" />
+            <element signature="e#12605#12606#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/options/OptionsPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="50" column="41" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
+          <folding>
+            <element signature="e#12429#12430#0" expanded="true" />
+            <element signature="e#12488#12489#0" expanded="true" />
+            <element signature="e#12536#12537#0" expanded="true" />
+            <element signature="e#12605#12606#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/non_gamepanel/MainMenuPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="20" column="49" selection-start-line="20" selection-start-column="49" selection-end-line="20" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/non_gamepanel/Manager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1545">
+          <caret line="116" column="19" selection-start-line="116" selection-start-column="19" selection-end-line="116" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/options/OptionsPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="34" column="35" lean-forward="true" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
+          <folding>
+            <element signature="e#12429#12430#0" expanded="true" />
+            <element signature="e#12488#12489#0" expanded="true" />
+            <element signature="e#12536#12537#0" expanded="true" />
+            <element signature="e#12605#12606#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/GamePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/idea.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="33" selection-start-column="33" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/awt/Color.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-901">
+          <caret line="413" column="33" lean-forward="true" selection-start-line="413" selection-start-column="33" selection-end-line="413" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/non_gamepanel/settings2.java" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/javax/swing/AbstractAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="58" column="22" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/javax/swing/Action.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="213" column="17" selection-start-line="213" selection-start-column="17" selection-end-line="213" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/non_gamepanel/Action.java" />
+    <entry file="file://$PROJECT_DIR$/src/test.kt" />
+    <entry file="file://$PROJECT_DIR$/src/non_gamepanel/ConcreteAction.java" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/awt/event/ActionListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="49" column="16" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/awt/image/BufferedImage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="1178" column="22" selection-start-line="1178" selection-start-column="22" selection-end-line="1178" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/awt/FontMetrics.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="538" column="54" lean-forward="true" selection-start-line="538" selection-start-column="54" selection-end-line="538" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/awt/font/GlyphVector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="270" column="21" selection-start-line="270" selection-start-column="21" selection-end-line="270" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/awt/Polygon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="182" column="16" selection-start-line="182" selection-start-column="16" selection-end-line="182" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/non_gamepanel/KeyConverter.java" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/javax/swing/KeyStroke.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="302" column="28" selection-start-line="302" selection-start-column="28" selection-end-line="302" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/non_gamepanel/DrawnGameOver.java" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/awt/Image.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="45" column="22" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/awt/Graphics.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="881" column="28" selection-start-line="881" selection-start-column="28" selection-end-line="881" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/javax/swing/ImageIcon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="392" column="18" selection-start-line="392" selection-start-column="18" selection-end-line="392" selection-end-column="18" />
+          <folding>
+            <element signature="e#12463#12464#0" expanded="true" />
+            <element signature="e#12497#12498#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="1924" column="18" selection-start-line="1924" selection-start-column="18" selection-end-line="1924" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/background_images/mainMenuBackground01.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/options/OptionsPanelLabelSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1438">
+          <caret line="22" column="57" selection-start-line="22" selection-start-column="57" selection-end-line="22" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/options/Triangle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="80" column="4" selection-start-line="80" selection-start-column="4" selection-end-line="80" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/GamePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1650">
+          <caret line="124" selection-start-line="124" selection-end-line="124" />
+          <folding>
+            <element signature="method#initInputMap#0;class#GamePanel#0" />
+            <element signature="method#initActionMap#0;class#GamePanel#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/Rock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/RockFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="94" column="5" lean-forward="true" selection-start-line="94" selection-start-column="5" selection-end-line="94" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/non_gamepanel/Arrow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-149">
+          <caret line="15" column="28" lean-forward="true" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/non_gamepanel/DrawnLabel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="161" selection-start-line="161" selection-end-line="161" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/non_gamepanel/GameOverPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="116" lean-forward="true" selection-start-line="116" selection-end-line="116" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/non_gamepanel/LightUpPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-624">
+          <caret line="29" column="42" lean-forward="true" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/non_gamepanel/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/non_gamepanel/MainMenuPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="41" column="34" lean-forward="true" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/non_gamepanel/Settings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1083">
+          <caret line="152" lean-forward="true" selection-start-line="152" selection-end-line="152" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/non_gamepanel/PanelSwitchListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="46" lean-forward="true" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/non_gamepanel/SettingsUpdater.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/options/OptionsPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2880">
+          <caret line="203" column="55" lean-forward="true" selection-start-line="203" selection-start-column="55" selection-end-line="203" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/options/DrawnLabelWithTriangles.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/non_gamepanel/Manager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="27" column="47" lean-forward="true" selection-start-line="27" selection-start-column="47" selection-end-line="27" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>FallingRocks</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

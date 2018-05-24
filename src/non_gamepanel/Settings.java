@@ -1,101 +1,159 @@
 package non_gamepanel;
 
+import java.awt.*;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Settings {
 
-	private boolean isFirstPlay;
-	private int highScore;
+    // This class is a singleton.
+    private static Settings privateInstance = new Settings();
+    private final int NUM_SETTINGS = 4;
+    private int highScore;
+    private int zenDifficulty;
+    private int userSpeed;
+    private Color userColor;
+    private File settingsFile;
+    private StringBuilder fileContents = new StringBuilder();
 
-	private File settingsFile;
-	private StringBuilder contents;
+    /*
+     * EXPECTED FILE FORMAT: Each value (all represented by numbers) is on a new line, ordered:
+     * 1) highScore
+     * 2) zenDifficulty (in range [1, 5])
+     * 3) user speed (in range [1, 5])
+     * 4) user color (int representing the RGB value)
+     */
 
-	/**
-	 * EXPECTED FILE FORMAT: Each value (all lower case) is on a new line, in the order 1) highScore. Boolean
-	 * isFirstPlay is determined based on the existence of a highScore at the start of the file. If no highScore exists,
-	 * then it is the first play. No additional words besides the string-represented values of these variables.
-	 * 
-	 * A JAR file is a Java Archive file and shouldn't be changed. So write local settings to a directory in the user's
-	 * home folder.
-	 */
 
-	public Settings() {
+    private Settings() {
+        if (privateInstance != null) {
+            return;
+        }
 
-		settingsFile = new File(System.getProperty("user.home") + "/FallingRocks/local_settings.txt");
-		contents = new StringBuilder();
+        settingsFile = new File(System.getProperty("user.home") + "/FallingRocks/local_settings.txt");
 
-		Scanner scanner;
+        if (settingsFile.exists()) {
+            try {
+                Scanner scanner = new Scanner(settingsFile);
 
-		if (settingsFile.exists()) {
-			try {
-				scanner = new Scanner(settingsFile);
+                LinkedList<Integer> numsFound = new LinkedList<>();
+                while (scanner.hasNextInt()) {
+                    numsFound.add(scanner.nextInt());
+                }
 
-				if (scanner.hasNextInt()) {
-					setHighScore(scanner.nextInt());
-					setFirstPlay(false);
-				} else {
-					setHighScore(0);
-					setFirstPlay(true);
+                if (numsFound.size() == NUM_SETTINGS) {
+                    highScore = numsFound.get(0);
+                    zenDifficulty = numsFound.get(1);
+                    userSpeed = numsFound.get(2);
+                    userColor = new Color(numsFound.get(3));
+                } else {
+                    // If some settings are missing, assume that file has been edited/ruined somehow.
+                    // Execute the same procedure as if file doesn't exist.
+                    highScore = 0;
+                    zenDifficulty = 2;
+                    userSpeed = 2;
+                    userColor = Color.WHITE;
 
-					contents.append(highScore + "\n");
-					PrintWriter pw = new PrintWriter(settingsFile);
-					pw.print(contents);
-					pw.close();
-				}
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			}
+                    writeSettingsToFile();
+                }
 
-		} else { // File doesn't exist, create it
-			try {
-				if (settingsFile.getParentFile().exists() == false) {
-					settingsFile.getParentFile().mkdirs(); // Make directory
-				}
-				settingsFile.createNewFile();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
-				setHighScore(0);
-				setFirstPlay(true);
+        } else {
+            // File doesn't exist, create it
+            try {
+                if (!settingsFile.getParentFile().exists()) {
+                    settingsFile.getParentFile().mkdirs(); // Make directory
+                }
+                settingsFile.createNewFile();
 
-				contents.append(highScore + "\n");
-				PrintWriter pw = new PrintWriter(settingsFile);
-				pw.print(contents);
-				pw.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			} catch (SecurityException e) {
-				e.printStackTrace();
-			}
-		}
+                highScore = 0;
+                zenDifficulty = 2;
+                userSpeed = 2;
+                userColor = Color.WHITE;
 
-	}
+                writeSettingsToFile();
 
-	public boolean isFirstPlay() {
-		return isFirstPlay;
-	}
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
-	public void setFirstPlay(boolean isFirstPlay) {
-		this.isFirstPlay = isFirstPlay;
-	}
 
-	public int getHighScore() {
-		return highScore;
-	}
+    private void writeSettingsToFile() {
+        try {
+            // Clear fileContents and replace with updated values
+            fileContents = new StringBuilder();
+            fileContents.append(highScore);
+            fileContents.append('\n');
+            fileContents.append(zenDifficulty);
+            fileContents.append('\n');
+            fileContents.append(userSpeed);
+            fileContents.append('\n');
+            fileContents.append(userColor.getRGB());
+            fileContents.append('\n');
 
-	public void setHighScore(int highScore) {
-		this.highScore = highScore;
+            PrintWriter pw = new PrintWriter(settingsFile.getPath());
+            pw.print(fileContents);
+            pw.close();
 
-		try {
-			contents = new StringBuilder(highScore + "\n"); // Clear contents and replace with new highScore
-			PrintWriter pw = new PrintWriter(settingsFile.getPath());
-			pw.print(contents);
-			pw.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-	}
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public static synchronized Settings getInstance() {
+        return privateInstance;
+    }
+
+
+    public int getHighScore() {
+        return highScore;
+    }
+
+
+    public void setHighScore(int highScore) {
+        this.highScore = highScore;
+        writeSettingsToFile();
+    }
+
+
+    public int getZenDifficulty() {
+        return zenDifficulty;
+    }
+
+
+    public void setZenDifficulty(int zenDifficulty) {
+        this.zenDifficulty = zenDifficulty;
+        writeSettingsToFile();
+    }
+
+
+    public int getUserSpeed() {
+        return userSpeed;
+    }
+
+
+    public void setUserSpeed(int userSpeed) {
+        this.userSpeed = userSpeed;
+        writeSettingsToFile();
+    }
+
+
+    public Color getUserColor() {
+        return userColor;
+    }
+
+
+    public void setUserColor(Color userColor) {
+        this.userColor = userColor;
+        writeSettingsToFile();
+    }
 
 }
