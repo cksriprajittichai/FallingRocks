@@ -51,7 +51,6 @@ public class LightUpPanel extends JPanel implements ActionListener {
             rightColor = Color.DARK_GRAY;
             upColor = Color.DARK_GRAY;
             downColor = Color.DARK_GRAY;
-            System.out.println("TEST");
             repaint();
             return;
         }
